@@ -1,52 +1,31 @@
-import React from 'react';
-import { MapPin, Users, Award, Globe } from 'lucide-react';
+import React from "react";
 
-const stats = [
-  {
-    icon: MapPin,
-    number: '500+',
-    label: 'Sacred Sites',
-    description: 'Buddhist temples and monasteries'
-  },
-  {
-    icon: Users,
-    number: '5000+',
-    label: 'Happy Pilgrims',
-    description: 'Spiritual journeys completed'
-  },
-  {
-    icon: Award,
-    number: '15+',
-    label: 'Years Experience',
-    description: 'In Buddhist tourism'
-  },
-  {
-    icon: Globe,
-    number: '8',
-    label: 'Countries',
-    description: 'Buddhist destinations covered'
-  }
-];
-
-const QuickStats = () => {
+const IndiaTourPackages = () => {
   return (
     <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center group">
-              <div className="bg-gradient-to-br from-amber-50 to-orange-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <stat.icon className="text-amber-600" size={32} />
-              </div>
-              <div className="text-3xl font-bold text-gray-800 mb-1">{stat.number}</div>
-              <div className="text-lg font-medium text-gray-700 mb-1">{stat.label}</div>
-              <div className="text-sm text-gray-500">{stat.description}</div>
-            </div>
-          ))}
+      <div className="container mx-auto px-10">
+        <div className="text-left">
+          <h2 className="text-2xl font-bold mb-6">
+            <span className="text-red-600 relative">
+              India Tour
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-black"></div>
+            </span>
+            <span className="text-gray-600">
+              {" "}
+              Packages - Start Planning Your India Tailor Made Holidays
+            </span>
+          </h2>
+          <p className="text-gray-700 text-base leading-relaxed max-w-5xl mt-6">
+            We have designed private luxury tours of India & travel packages of
+            experiences around the most authentic locations. These tailor-made
+            holidays are a perfect match for your travel style. Explore India
+            tour packages by regions, themes, special interest, duration,
+            destinations and for first timers.
+          </p>
         </div>
       </div>
     </section>
   );
 };
 
-export default QuickStats;
+export default IndiaTourPackages;

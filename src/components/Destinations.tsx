@@ -1,188 +1,157 @@
-import { Users, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Users, Star, ArrowRight } from "lucide-react";
 
 const destinations = [
   {
     name: "India",
     image:
-      "https://images.pexels.com/photos/1583339/pexels-photo-1583339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description:
-      "Birthplace of Buddhism with sacred sites where Buddha lived, taught, and attained enlightenment.",
-    highlights: [
-      "Bodh Gaya - Enlightenment Site",
-      "Sarnath - First Sermon",
-      "Kushinagar - Final Rest",
-      "Ajanta & Ellora Caves",
-    ],
-    tours: 15,
-    rating: 4.9,
+      "https://images.pexels.com/photos/1583339/pexels-photo-1583339.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1",
+    title: "India Golden Triangle Tour",
   },
   {
     name: "Sri Lanka",
     image:
-      "https://images.pexels.com/photos/3308588/pexels-photo-3308588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description:
-      "Ancient Buddhist kingdom with magnificent temples and sacred relics.",
-    highlights: [
-      "Temple of Tooth Relic",
-      "Sigiriya Rock",
-      "Dambulla Cave Temple",
-      "Anuradhapura",
-    ],
-    tours: 12,
-    rating: 4.8,
+      "https://images.pexels.com/photos/3308588/pexels-photo-3308588.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1",
+    title: "Golden Triangle Trip with Varanasi",
   },
   {
     name: "Myanmar",
     image:
-      "https://images.pexels.com/photos/3889853/pexels-photo-3889853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description:
-      "Land of golden pagodas with over 10,000 ancient Buddhist temples.",
-    highlights: [
-      "Shwedagon Pagoda",
-      "Bagan Plains",
-      "Mandalay Hill",
-      "Inle Lake Monasteries",
-    ],
-    tours: 10,
-    rating: 4.7,
+      "https://images.pexels.com/photos/3889853/pexels-photo-3889853.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1",
+    title: "Luxury Rajasthan Tour Package",
   },
   {
     name: "Cambodia",
     image:
-      "https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "Home to Angkor Wat and rich Khmer Buddhist heritage.",
-    highlights: [
-      "Angkor Wat Complex",
-      "Bayon Temple",
-      "Ta Prohm",
-      "Silver Pagoda",
-    ],
-    tours: 9,
-    rating: 4.6,
+      "https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1",
+    title: "Golden Triangle Heritage Tour",
   },
   {
     name: "Bhutan",
     image:
-      "https://images.pexels.com/photos/12944672/pexels-photo-12944672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description:
-      "Last Shangri-La with pristine Buddhist culture and stunning Himalayan monasteries.",
-    highlights: [
-      "Tigers Nest Monastery",
-      "Punakha Dzong",
-      "Thimphu Temples",
-      "Bumthang Valley",
-    ],
-    tours: 8,
-    rating: 4.9,
+      "https://images.pexels.com/photos/12944672/pexels-photo-12944672.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1",
+    title: "Golden Triangle tour with Khajuraho",
   },
   {
     name: "Thailand",
     image:
-      "https://images.pexels.com/photos/1559825/pexels-photo-1559825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description:
-      "Vibrant Theravada Buddhist culture with ornate temples and meditation centers.",
-    highlights: [
-      "Wat Pho Temple",
-      "Golden Buddha",
-      "Floating Markets",
-      "Meditation Retreats",
-    ],
-    tours: 14,
-    rating: 4.8,
+      "https://images.pexels.com/photos/1559825/pexels-photo-1559825.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1",
+    title: "Rajasthan Culture Tour",
   },
 ];
 
-const Destinations = () => {
+const travelThemes = [
+  "Heritage Tours of India",
+  "India Art & Culture Tours",
+  "Indian Wildlife with Game Drive",
+  "India Yoga & Wellness Tours",
+  "India Food & Culinary Tours",
+  "Adventure Tours",
+  "Festival Tours",
+  "India Spiritual Tours",
+  "Easter Holidays",
+  "Thanksgiving Vacations",
+];
+
+const TravelDestinations = () => {
   return (
-    <section id="destinations" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
-            Sacred Buddhist Destinations
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Explore the most significant Buddhist sites across Asia, where
-            ancient wisdom meets breathtaking architecture and serene spiritual
-            environments.
-          </p>
+    <div className="flex min-h-screen bg-gray-100">
+      {/* Left Side - Travel Themes */}
+      <div className="w-1/2 relative">
+        <div
+          className="h-full bg-cover bg-center relative"
+          style={{
+            backgroundImage:
+              "url('https://images.pexels.com/photos/1131458/pexels-photo-1131458.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1')",
+          }}
+        >
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/60"></div>
+
+          {/* Content */}
+          <div className="relative z-10 p-8 text-white h-full flex flex-col justify-start pt-16">
+            <h2 className="text-4xl font-bold mb-4">Travel Themes</h2>
+            <p className="text-lg mb-8 opacity-90">
+              Inspire you to explore India tours beyond the usual well-known
+              locations.
+            </p>
+
+            <div className="space-y-3">
+              {travelThemes.map((theme, index) => (
+                <div
+                  key={index}
+                  className="flex items-center space-x-3 text-white/90 hover:text-white cursor-pointer transition-colors"
+                >
+                  <div className="w-2 h-2 bg-red-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-sm font-medium">{theme}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+        {/* Query Button */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-20">
+          <button className="bg-red-500 text-white px-3 py-4 rounded-l-lg hover:bg-red-600 transition-colors transform -rotate-90 origin-center">
+            <span className="text-xs font-medium tracking-wider">
+              SEND A QUERY
+            </span>
+          </button>
+        </div>
+      </div>
+
+      {/* Right Side - Destination Cards */}
+      <div className="w-1/2 border-l border-gray-200">
+        <div className="grid grid-cols-2 gap-1 h-full">
           {destinations.map((destination, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group"
+              className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg"
             >
-              <div className="relative overflow-hidden">
+              <div className="aspect-[4/3] relative">
                 <img
                   src={destination.image}
                   alt={destination.name}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-                  <div className="flex items-center space-x-1">
-                    <Star className="fill-current text-red-500" size={14} />
-                    <span className="text-sm font-medium">
-                      {destination.rating}
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
+
+                {/* Content */}
+                <div className="absolute inset-0 p-4 flex flex-col justify-between text-white">
+                  <div className="text-right">
+                    <span className="text-xs bg-white/20 backdrop-blur-sm px-2 py-1 rounded">
+                      {destination.name}
                     </span>
                   </div>
-                </div>
-              </div>
 
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-bold text-gray-800">
-                    {destination.name}
-                  </h3>
-                  <div className="flex items-center space-x-1 text-gray-500">
-                    <Users size={14} />
-                    <span className="text-sm">{destination.tours} tours</span>
+                  <div>
+                    <h3 className="text-lg font-bold mb-2 leading-tight">
+                      {destination.title}
+                    </h3>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm opacity-90">View Details</span>
+                      <ArrowRight
+                        size={16}
+                        className="group-hover:translate-x-1 transition-transform"
+                      />
+                    </div>
                   </div>
-                </div>
-
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  {destination.description}
-                </p>
-
-                <div className="mb-4">
-                  <h4 className="font-medium text-gray-800 mb-2">
-                    Key Highlights:
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {destination.highlights
-                      .slice(0, 2)
-                      .map((highlight, idx) => (
-                        <span
-                          key={idx}
-                          className="bg-red-50 text-red-700 px-2 py-1 rounded-full text-xs"
-                        >
-                          {highlight}
-                        </span>
-                      ))}
-                    {destination.highlights.length > 2 && (
-                      <span className="text-red-600 text-xs">
-                        +{destination.highlights.length - 2} more
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                <div className="flex justify-end pt-4 border-t">
-                  <Link
-                    to="/tours"
-                    className="bg-red-600 text-white px-6 py-2 rounded-full text-sm hover:bg-red-700 transition-colors inline-block"
-                  >
-                    View Tours
-                  </Link>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Chat Button */}
+        <div className="fixed bottom-8 right-8">
+          {/* <button className="bg-teal-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-teal-600 transition-colors shadow-lg">
+            CHAT
+          </button> */}
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Destinations;
+export default TravelDestinations;

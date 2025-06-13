@@ -1,126 +1,175 @@
-import React from 'react';
-import { Heart, Users, Compass, BookOpen } from 'lucide-react';
+import React from "react";
+import { MapPin, Users, Heart, Star, Globe, Phone } from "lucide-react";
 
-const teachings = [
-  {
-    icon: Heart,
-    title: 'Four Noble Truths',
-    description: 'The foundation of Buddhist teaching about the nature of suffering and the path to liberation.',
-    details: 'Understanding suffering, its cause, its cessation, and the path to end suffering.'
-  },
-  {
-    icon: Compass,
-    title: 'Noble Eightfold Path',
-    description: 'The practical guide to ethical and spiritual development leading to enlightenment.',
-    details: 'Right understanding, intention, speech, action, livelihood, effort, mindfulness, and concentration.'
-  },
-  {
-    icon: Users,
-    title: 'Three Jewels',
-    description: 'The three fundamental elements that Buddhists take refuge in on their spiritual journey.',
-    details: 'The Buddha (teacher), Dharma (teachings), and Sangha (community) as sources of guidance.'
-  },
-  {
-    icon: BookOpen,
-    title: 'Meditation Practice',
-    description: 'The core practice for developing mindfulness, wisdom, and inner peace.',
-    details: 'Various techniques including mindfulness, loving-kindness, and insight meditation.'
-  }
+const importantLinks = [
+  "Destination Wedding",
+  "Fairs & Festivals",
+  "Indian Wildlife",
+  "States of India",
+  "Cities of India",
+  "MICE Tourism",
+  "Currency",
+  "Weather",
+  "E-visa",
 ];
 
-const AboutBuddhism = () => {
+const WhoWeAre = () => {
   return (
     <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left content */}
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-4xl font-bold text-gray-800 mb-4">Understanding Buddhism</h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Buddhism is more than a religion—it's a path of spiritual development that leads to 
-                insight into the true nature of reality. Founded over 2,500 years ago by Prince 
-                Siddhartha Gautama, who became known as the Buddha or "Awakened One."
-              </p>
+        <div className="grid lg:grid-cols-3 gap-12">
+          {/* Left content - Main content area */}
+          <div className="lg:col-span-2 space-y-8">
+            <div className="flex items-center space-x-3 mb-8">
+              <div className="bg-amber-600 text-white p-2 rounded-full">
+                <Users size={24} />
+              </div>
+              <h2 className="text-2xl font-bold text-red-600">Who we are?</h2>
             </div>
 
-            <div className="space-y-6">
-              <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">Core Philosophy</h3>
-                <p className="text-gray-600">
-                  Buddhism teaches that all life is interconnected and that suffering arises from 
-                  attachment and ignorance. Through ethical conduct, mental discipline, and wisdom, 
-                  one can achieve liberation from suffering and attain enlightenment.
+            <div className="prose prose-lg max-w-none">
+              {/* <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-8 rounded-2xl mb-8">
+                <div className="flex items-center space-x-3 mb-4">
+                  <Heart className="text-amber-600" size={28} />
+                  <h3 className="text-2xl font-bold text-gray-800 m-0">
+                    Namaste & Welcome to India!
+                  </h3>
+                </div>
+              </div> */}
+
+              <div className="text-gray-700 leading-relaxed space-y-6 text-lg">
+                <p>
+                  Spirituality is a state of being. It can connotate different
+                  things to different people, but the underlying pursuit remains
+                  to connect to a higher version of the self. Spirituality not
+                  just helps you rediscover yourself but also unearth the
+                  nuances of daily life. While people choose divergent paths to
+                  awaken their higher self, traveling acts one of the best
+                  catalysts.
                 </p>
+
+                <p>
+                  Buddhist Tour helps people by taking them on a timeless
+                  journey across the Indo Gangetic Plains. Everyone has a
+                  spiritual journey that is unique and intimate, which is why we
+                  have made it our mission to provide a travel experience that
+                  is one of its kinds. Our team consists of trained
+                  professionals and erudite experts who have in-depth knowledge
+                  of the regions and the way Buddhism connects to each of them.
+                </p>
+
+                <p>
+                  We ensure to arrange for luxurious and hassle-free travel to
+                  Buddhist pilgrimage sites, only with the motto to bring you
+                  closer to yourself. We are a people's organization, which is
+                  why you can rely on us for your comfort, quality of services
+                  and exciting travel itinerary.
+                </p>
+
+                <p>
+                  Buddhist Tours grows every moment with the trust of the
+                  people. We believe in building relationships with you that
+                  last for a lifetime, just like the enthralling and memorable
+                  experience of the travel that goes beyond words. Our extensive
+                  network of representatives works 24*7 to provide you with a
+                  seamless pilgrimage to Buddhist destinations across the Indo
+                  Gangetic plains.
+                </p>
+
+                <p>
+                  Seeded with the foundation of providing personalized services
+                  on your journey to spirituality, Buddhist Tours offers one of
+                  the most competitive rates. Be it hotels or other supplies, we
+                  offer the best in class services backed by unparalleled rates.
+                </p>
+
+                <p>
+                  With Buddhist Tours, we take you through the life of the
+                  high-spirited Buddha, in its very essence, while you
+                  renaissance through each moment.
+                </p>
+
+                {/* <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white p-8 rounded-2xl mt-8">
+                  <div className="text-center">
+                    <p className="text-lg mb-4">With best regards</p>
+                    <p className="text-xl font-semibold mb-2">Sincerely,</p>
+                    <p className="text-2xl font-bold">For Buddhist Tour</p>
+                  </div>
+                </div> */}
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-amber-600 mb-1">2,500+</div>
-                  <div className="text-sm text-gray-600">Years of Wisdom</div>
+              {/* Key highlights */}
+              <div className="grid md:grid-cols-3 gap-6 mt-12">
+                <div className="text-center bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-xl">
+                  <Globe className="mx-auto text-amber-600 mb-3" size={32} />
+                  <h4 className="font-bold text-gray-800 mb-2">
+                    Indo Gangetic Plains
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    Sacred Buddhist destinations
+                  </p>
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-amber-600 mb-1">500M</div>
-                  <div className="text-sm text-gray-600">Followers Worldwide</div>
+                <div className="text-center bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-xl">
+                  <Phone className="mx-auto text-amber-600 mb-3" size={32} />
+                  <h4 className="font-bold text-gray-800 mb-2">24/7 Support</h4>
+                  <p className="text-sm text-gray-600">
+                    Dedicated travel assistance
+                  </p>
+                </div>
+                <div className="text-center bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-xl">
+                  <Star className="mx-auto text-amber-600 mb-3" size={32} />
+                  <h4 className="font-bold text-gray-800 mb-2">
+                    Competitive Rates
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    Best value spiritual journeys
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right content - Image */}
-          <div className="relative">
-            <img 
-              src="https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Buddha Meditation"
-              className="w-full h-96 object-cover rounded-2xl shadow-2xl"
-            />
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
-              <div className="text-2xl font-bold text-amber-600 mb-1">Nirvana</div>
-              <div className="text-sm text-gray-600">Ultimate goal of liberation</div>
+          {/* Right sidebar - Important Links */}
+          <div className="lg:col-span-1">
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl sticky top-8">
+              <div className="flex items-center space-x-3 mb-6">
+                <MapPin className="text-amber-600" size={24} />
+                <h3 className="text-2xl font-bold text-gray-800">
+                  Important Link
+                </h3>
+              </div>
+              <div className="border-b-2 border-gray-800 w-16 mb-6"></div>
+
+              <div className="space-y-3">
+                {importantLinks.map((link, index) => (
+                  <div key={index} className="group">
+                    <div className="flex items-center justify-between p-3 bg-white rounded-lg hover:bg-amber-50 transition-colors cursor-pointer border-l-4 border-transparent hover:border-amber-600">
+                      <span className="text-gray-700 group-hover:text-amber-700 font-medium">
+                        {link}
+                      </span>
+                      <span className="text-gray-400 group-hover:text-amber-600">
+                        ❯
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 p-4 bg-gradient-to-r from-amber-600 to-orange-600 rounded-xl text-white text-center">
+                <h4 className="font-bold mb-2">Start Your Journey</h4>
+                <p className="text-sm opacity-90 mb-3">
+                  Discover the path to enlightenment
+                </p>
+                <button className="bg-white text-amber-600 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors text-sm">
+                  Contact Us
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Core Teachings */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4">Core Buddhist Teachings</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Explore the fundamental principles that guide Buddhist philosophy and practice
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            {teachings.map((teaching, index) => (
-              <div key={index} className="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-2xl hover:shadow-lg transition-shadow">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-amber-600 text-white p-3 rounded-full">
-                    <teaching.icon size={24} />
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-xl font-bold text-gray-800 mb-2">{teaching.title}</h4>
-                    <p className="text-gray-600 mb-3">{teaching.description}</p>
-                    <p className="text-sm text-gray-500 italic">{teaching.details}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Call to action */}
-        <div className="mt-16 text-center bg-gradient-to-r from-amber-600 to-orange-600 text-white p-12 rounded-2xl">
-          <h3 className="text-2xl font-bold mb-4">Begin Your Spiritual Journey</h3>
-          <p className="text-lg mb-6 opacity-90">
-            Experience these timeless teachings firsthand through our guided tours to sacred Buddhist sites
-          </p>
-          <button className="bg-white text-amber-600 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
-            Explore Buddhist Tours
-          </button>
         </div>
       </div>
     </section>
   );
 };
 
-export default AboutBuddhism;
+export default WhoWeAre;

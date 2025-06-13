@@ -39,7 +39,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-red-600 to-red-700 text-white">
+      <section className="relative py-20 bg-[#ed3237] text-white">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6">Contact Us</h1>
@@ -418,7 +418,7 @@ const ContactPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-amber-600 to-orange-600 text-white">
+      {/* <section className="py-16 bg-gradient-to-r from-amber-600 to-orange-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready to Begin Your Spiritual Journey?
@@ -436,7 +436,7 @@ const ContactPage = () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

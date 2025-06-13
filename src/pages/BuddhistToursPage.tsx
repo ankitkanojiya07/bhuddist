@@ -1269,20 +1269,23 @@ const BuddhistToursPage = () => {
 
             <div className="space-y-4">
               <div>
-                <h3 className="text-lg font-semibold text-red-600 mb-2">
+                {" "}
+                <h3 className="text-lg font-semibold text-[#ed3237] mb-2">
                   Significance
                 </h3>
                 <p className="text-gray-700">{destination.significance}</p>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-600 mb-2">
+                {" "}
+                <h3 className="text-lg font-semibold text-[#ed3237] mb-2">
                   Description
                 </h3>
                 <p className="text-gray-700">{destination.description}</p>
               </div>{" "}
               {destination.location && (
                 <div>
-                  <h3 className="text-lg font-semibold text-red-600 mb-2">
+                  {" "}
+                  <h3 className="text-lg font-semibold text-[#ed3237] mb-2">
                     Location
                   </h3>
                   <p className="text-gray-700 flex items-center">

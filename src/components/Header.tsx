@@ -1,17 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, MapPin, Phone, Mail } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
 
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
-      {/* Top bar */}
-      <div className="bg-red-600 text-white py-2 px-4">
+    <header
+      className={`transition-all duration-300 sticky top-0 z-50 ${
+        scrolled ? "bg-white shadow-lg" : "bg-transparent"
+      }`}
+    >
+      {/* Top bar - hidden when scrolled */}
+      <div
+        className={`bg-red-600 text-white py-2 px-4 transition-all duration-300 ${
+          scrolled
+            ? "max-h-0 opacity-0 overflow-hidden py-0"
+            : "max-h-20 opacity-100"
+        }`}
+      >
         <div className="container mx-auto flex justify-between items-center text-sm">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-1">
@@ -25,29 +52,41 @@ const Header = () => {
           </div>
           <div className="flex items-center space-x-1">
             <MapPin size={14} />
-            <span>Spiritual Tours Across Asia</span>
+            <span>Spiritual Tours Across India</span>
           </div>
         </div>
-      </div>
-
+      </div>{" "}
       {/* Main navigation */}
       <nav className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center">
+            <div
+              className={`w-10 h-10 ${
+                scrolled ? "bg-[#ed3237]" : "bg-transparent border border-white"
+              } rounded-full flex items-center justify-center transition-all duration-300`}
+            >
               <span className="text-white font-bold text-lg">B</span>
             </div>
-            <h1 className="text-2xl font-bold text-gray-800">Buddhist Tours</h1>
+            <h1
+              className={`text-2xl font-bold ${
+                scrolled ? "text-gray-800" : "text-white"
+              } transition-colors duration-300`}
+            >
+              Buddhist Tours
+            </h1>
           </Link>
-
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
               className={`font-medium transition-colors ${
                 isActive("/")
-                  ? "text-red-600"
-                  : "text-gray-700 hover:text-red-600"
+                  ? scrolled
+                    ? "text-[#ed3237]"
+                    : "text-white font-semibold"
+                  : scrolled
+                  ? "text-gray-700 hover:text-[#ed3237]"
+                  : "text-white hover:text-red-200"
               }`}
             >
               Home
@@ -56,8 +95,12 @@ const Header = () => {
               to="/destinations"
               className={`font-medium transition-colors ${
                 isActive("/destinations")
-                  ? "text-red-600"
-                  : "text-gray-700 hover:text-red-600"
+                  ? scrolled
+                    ? "text-[#ed3237]"
+                    : "text-white font-semibold"
+                  : scrolled
+                  ? "text-gray-700 hover:text-[#ed3237]"
+                  : "text-white hover:text-red-200"
               }`}
             >
               Destinations
@@ -66,8 +109,12 @@ const Header = () => {
               to="/tours"
               className={`font-medium transition-colors ${
                 isActive("/tours")
-                  ? "text-red-600"
-                  : "text-gray-700 hover:text-red-600"
+                  ? scrolled
+                    ? "text-[#ed3237]"
+                    : "text-white font-semibold"
+                  : scrolled
+                  ? "text-gray-700 hover:text-[#ed3237]"
+                  : "text-white hover:text-red-200"
               }`}
             >
               Tours
@@ -76,8 +123,12 @@ const Header = () => {
               to="/buddhist-tours"
               className={`font-medium transition-colors ${
                 isActive("/buddhist-tours")
-                  ? "text-red-600"
-                  : "text-gray-700 hover:text-red-600"
+                  ? scrolled
+                    ? "text-[#ed3237]"
+                    : "text-white font-semibold"
+                  : scrolled
+                  ? "text-gray-700 hover:text-[#ed3237]"
+                  : "text-white hover:text-red-200"
               }`}
             >
               Buddhism Tour
@@ -86,8 +137,12 @@ const Header = () => {
               to="/about-buddhism"
               className={`font-medium transition-colors ${
                 isActive("/about-buddhism")
-                  ? "text-red-600"
-                  : "text-gray-700 hover:text-red-600"
+                  ? scrolled
+                    ? "text-[#ed3237]"
+                    : "text-white font-semibold"
+                  : scrolled
+                  ? "text-gray-700 hover:text-[#ed3237]"
+                  : "text-white hover:text-red-200"
               }`}
             >
               About Buddhism
@@ -96,18 +151,26 @@ const Header = () => {
               to="/packages"
               className={`font-medium transition-colors ${
                 isActive("/packages")
-                  ? "text-red-600"
-                  : "text-gray-700 hover:text-red-600"
+                  ? scrolled
+                    ? "text-[#ed3237]"
+                    : "text-white font-semibold"
+                  : scrolled
+                  ? "text-gray-700 hover:text-[#ed3237]"
+                  : "text-white hover:text-red-200"
               }`}
             >
-              Our Packages
+              Packages
             </Link>
             <Link
               to="/testimonials"
               className={`font-medium transition-colors ${
                 isActive("/testimonials")
-                  ? "text-red-600"
-                  : "text-gray-700 hover:text-red-600"
+                  ? scrolled
+                    ? "text-[#ed3237]"
+                    : "text-white font-semibold"
+                  : scrolled
+                  ? "text-gray-700 hover:text-[#ed3237]"
+                  : "text-white hover:text-red-200"
               }`}
             >
               Testimonials
@@ -116,20 +179,31 @@ const Header = () => {
               to="/contact"
               className={`font-medium transition-colors ${
                 isActive("/contact")
-                  ? "text-red-600"
-                  : "text-gray-700 hover:text-red-600"
+                  ? scrolled
+                    ? "text-[#ed3237]"
+                    : "text-white font-semibold"
+                  : scrolled
+                  ? "text-gray-700 hover:text-[#ed3237]"
+                  : "text-white hover:text-red-200"
               }`}
             >
               Contact
-            </Link>
-            <button className="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition-colors font-medium">
+            </Link>{" "}
+            <button
+              className={`px-6 py-2 rounded-full transition-all duration-300 font-medium border ${
+                scrolled
+                  ? "border-red-600 text-red-600 hover:bg-red-600 hover:text-white"
+                  : "border-white text-white hover:bg-white/20"
+              }`}
+            >
               Book Now
             </button>
-          </div>
-
+          </div>{" "}
           {/* Mobile menu button */}
           <button
-            className="md:hidden"
+            className={`md:hidden transition-colors ${
+              scrolled ? "text-gray-800" : "text-white"
+            }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -138,57 +212,99 @@ const Header = () => {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t pt-4">
+          <div
+            className={`md:hidden mt-4 pb-4 border-t pt-4 ${
+              scrolled ? "border-gray-200" : "border-white/20"
+            }`}
+          >
             <div className="flex flex-col space-y-4">
               <Link
                 to="/"
-                className="text-gray-700 hover:text-red-600 transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  scrolled
+                    ? "text-gray-700 hover:text-[#ed3237]"
+                    : "text-white hover:text-red-200"
+                }`}
               >
                 Home
               </Link>
               <Link
                 to="/destinations"
-                className="text-gray-700 hover:text-red-600 transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  scrolled
+                    ? "text-gray-700 hover:text-[#ed3237]"
+                    : "text-white hover:text-red-200"
+                }`}
               >
                 Destinations
               </Link>
               <Link
                 to="/tours"
-                className="text-gray-700 hover:text-red-600 transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  scrolled
+                    ? "text-gray-700 hover:text-[#ed3237]"
+                    : "text-white hover:text-red-200"
+                }`}
               >
                 Tours
               </Link>
               <Link
                 to="/buddhist-tours"
-                className="text-gray-700 hover:text-red-600 transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  scrolled
+                    ? "text-gray-700 hover:text-[#ed3237]"
+                    : "text-white hover:text-red-200"
+                }`}
               >
                 Buddhism Tour
               </Link>
               <Link
                 to="/about-buddhism"
-                className="text-gray-700 hover:text-red-600 transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  scrolled
+                    ? "text-gray-700 hover:text-[#ed3237]"
+                    : "text-white hover:text-red-200"
+                }`}
               >
                 About Buddhism
               </Link>
               <Link
                 to="/packages"
-                className="text-gray-700 hover:text-red-600 transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  scrolled
+                    ? "text-gray-700 hover:text-[#ed3237]"
+                    : "text-white hover:text-red-200"
+                }`}
               >
                 Our Packages
               </Link>
               <Link
                 to="/testimonials"
-                className="text-gray-700 hover:text-red-600 transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  scrolled
+                    ? "text-gray-700 hover:text-[#ed3237]"
+                    : "text-white hover:text-red-200"
+                }`}
               >
                 Testimonials
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-700 hover:text-red-600 transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  scrolled
+                    ? "text-gray-700 hover:text-[#ed3237]"
+                    : "text-white hover:text-red-200"
+                }`}
               >
                 Contact
-              </Link>
-              <button className="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition-colors font-medium w-full">
+              </Link>{" "}
+              <button
+                className={`px-6 py-2 rounded-full transition-all duration-300 font-medium border w-full ${
+                  scrolled
+                    ? "border-red-600 text-red-600 hover:bg-red-600 hover:text-white"
+                    : "border-white text-white hover:bg-white/20"
+                }`}
+              >
                 Book Now
               </button>
             </div>

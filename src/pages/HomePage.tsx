@@ -1,9 +1,9 @@
 import Hero from "../components/Hero";
-import QuickStats from "../components/QuickStats";
+import IndiaTourPackages from "../components/QuickStats";
 import Destinations from "../components/Destinations";
 import FeaturedTours from "../components/FeaturedTours";
 import WhyChooseUs from "../components/WhyChooseUs";
-import AboutBuddhism from "../components/AboutBuddhism";
+import WhoWeAre from "../components/AboutBuddhism";
 import Testimonials from "../components/Testimonials";
 import CallToAction from "../components/CallToAction";
 import Contact from "../components/Contact";
@@ -12,11 +12,11 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <QuickStats />
+      <IndiaTourPackages />
       <Destinations />
+      <WhoWeAre />
       <FeaturedTours />
       <WhyChooseUs />
-      <AboutBuddhism />
       <Testimonials />
       <CallToAction />
       <Contact />

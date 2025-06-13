@@ -609,7 +609,6 @@ const DetailedDestinations = () => {
               <ArrowLeft size={20} />
               <span>Back to {selectedDestination?.name}</span>
             </button>
-
             <div className="grid lg:grid-cols-2 gap-12">
               <div>
                 <img
@@ -645,7 +644,6 @@ const DetailedDestinations = () => {
                 </div>
               </div>
             </div>
-
             {/* Detailed Information */}
             <div className="mt-12 grid lg:grid-cols-3 gap-8">
               {/* How to Reach */}
@@ -706,9 +704,8 @@ const DetailedDestinations = () => {
                 </div>
               </div>
             </div>
-
-            {/* Detailed Description */}
-            <div className="mt-8 bg-gradient-to-r from-red-50 to-pink-50 rounded-xl p-8">
+            {/* Detailed Description */}{" "}
+            <div className="mt-8 bg-gray-50 rounded-xl p-8">
               <h3 className="text-2xl font-bold text-gray-800 mb-4">
                 {" "}
                 About {selectedSite?.name}
@@ -717,7 +714,6 @@ const DetailedDestinations = () => {
                 {selectedSite?.details}
               </p>
             </div>
-
             {/* CTA */}
             <div className="mt-8 text-center">
               <button className="bg-red-600 text-white px-8 py-3 rounded-full hover:bg-red-700 transition-colors font-medium">

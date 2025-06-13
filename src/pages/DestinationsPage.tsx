@@ -154,7 +154,7 @@ const DestinationsPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-red-600 to-red-700 text-white">
+      <section className="py-20 bg-[#ed3237] text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Buddhist Destinations
